@@ -1,0 +1,36 @@
+<label>Admin Login Successfully</label>
+<div>
+    <table id="admin">
+        <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>GENDER</th>
+            <th>EMAIL</th>
+            <th>PASSWORD</th>
+            <th>CONTACT_NO</th>
+            <th>ADDRESS</th>
+            <th>TECHNOLOGY</th>
+            <th>ROLE</th>
+        </tr>
+        <tr *ngFor="let e of emparr">
+          <td>{{e.id}}</td> 
+          <td>{{e.firstName}}</td>
+          <td>{{e.lastName}}</td>
+          <td>{{e.gender}}</td>
+          <td>{{e.email}}</td>
+          <td>{{e.password}}</td>
+          <td>{{e.contactNo}}</td>
+          <td>{{e.address}}</td>
+          <td>{{e.technology}}</td>
+          <td>{{e.role}}</td>
+          <td><button class="btn btn-warning" (click)="updateEmployeeDetails(e)"> Update </button></td>
+          <td><button class="btn btn-danger" (click)="deleteEmployeeDetails(e)"> Delete </button></td>
+        </tr>
+    </table>
+
+    <div *ngIf=flag>
+        <br/>
+<app-employee-form [eob]="ob" (myevent)="emparr=$event"></app-employee-form>
+    </div>
+</div>
